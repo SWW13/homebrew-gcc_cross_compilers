@@ -8,7 +8,7 @@ class I486LinuxGnuGcc < Formula
   depends_on 'gmp'
   depends_on 'libmpc'
   depends_on 'mpfr'
-  depends_on 'i486-linux-binutils'
+  depends_on 'i486-linux-gnu-binutils'
 
   def install
     binutils = Formula.factory 'i486-linux-binutils'
