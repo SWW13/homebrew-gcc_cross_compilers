@@ -11,7 +11,7 @@ class I486LinuxGnuGcc < Formula
   depends_on 'i486-linux-gnu-binutils'
 
   def install
-    binutils = Formula.factory 'i486-linux-binutils'
+    binutils = Formula.factory 'i486-linux-gnu-binutils'
 
     ENV['CC'] = '/usr/local/bin/gcc-4.2'
     ENV['CXX'] = '/usr/local/bin/g++-4.2'
