@@ -2,7 +2,7 @@ require 'formula'
 
 class I386ElfBinutils < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftp.gnu.org/gnu/binutils/binutils-2.21.1.tar.gz'
+  url 'http://ftp.gnu.org/gnu/binutils/binutils-2.21.1.tar.bz2'
 
   depends_on 'apple-gcc42' => :build
 
