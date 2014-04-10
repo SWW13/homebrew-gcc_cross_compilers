@@ -2,8 +2,8 @@ require 'formula'
 
 class I386ElfGcc < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftpmirror.gnu.org/gcc/gcc-4.4.3/gcc-4.4.3.tar.bz2'
-  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.4.3/gcc-4.4.3.tar.bz2'
+  url 'http://ftpmirror.gnu.org/gcc/gcc-4.6.1/gcc-4.6.1.tar.bz2'
+  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.6.1/gcc-4.6.1.tar.bz2'
 
   depends_on 'gmp'
   depends_on 'libmpc'
