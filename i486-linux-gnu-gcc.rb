@@ -1,6 +1,6 @@
 require 'formula'
 
-class I486LinuxGcc < Formula
+class I486LinuxGnuGcc < Formula
   homepage 'http://gcc.gnu.org'
   url 'http://ftpmirror.gnu.org/gcc/gcc-4.4.3/gcc-4.4.3.tar.bz2'
   mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.4.3/gcc-4.4.3.tar.bz2'

@@ -1,6 +1,6 @@
 require 'formula'
 
-class I486LinuxBinutils < Formula
+class I486LinuxGnuBinutils < Formula
   homepage 'http://gcc.gnu.org'
   url 'http://ftp.gnu.org/gnu/binutils/binutils-2.20.1.tar.bz2'
 
