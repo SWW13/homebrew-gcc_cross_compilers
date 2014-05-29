@@ -2,8 +2,9 @@ require 'formula'
 
 class I386ElfGcc < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftpmirror.gnu.org/gcc/gcc-4.6.1/gcc-4.6.1.tar.bz2'
-  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.6.1/gcc-4.6.1.tar.bz2'
+  url 'http://ftpmirror.gnu.org/gcc/gcc-4.9.0/gcc-4.9.0.tar.bz2'
+  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.9.0/gcc-4.9.0.tar.bz2'
+  sha1 'fbde8eb49f2b9e6961a870887cf7337d31cd4917'
 
   depends_on 'gmp'
   depends_on 'libmpc'
@@ -22,7 +23,7 @@ class I386ElfGcc < Formula
     mkdir 'build' do
       system '../configure', '--disable-nls', '--target=i386-elf', '--disable-werror',
                              "--prefix=#{prefix}",
-                             "--enable-languages=c",
+                             "--enable-languages=c,c++",
                              "--without-headers"
       system 'make all-gcc'
       system 'make install-gcc'
