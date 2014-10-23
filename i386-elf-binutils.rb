@@ -6,7 +6,7 @@ class I386ElfBinutils < Formula
   mirror 'http://ftpmirror.gnu.org/gnu/binutils/binutils-2.24.tar.gz'
   sha1 '1b2bc33003f4997d38fadaa276c1f0321329ec56'
 
-  depends_on 'apple-gcc42' => :build
+  depends_on 'gcc49' => :build
 
   def install
     ENV['CC'] = '/usr/local/bin/gcc-4.9'
@@ -15,13 +15,12 @@ class I386ElfBinutils < Formula
     ENV['LD'] = '/usr/local/bin/gcc-4.9'
 
     mkdir 'build' do
-      system '../configure', '--disable-nls', '--target=i386-elf',
-                             '--disable-werror', 
-                             '--enable-gold=yes',
+      system '../configure', '--target=i386-elf',
+                             '--disable-nls', '--disable-werror',
+                             '--enable-interwork', '--enable-multilib',
                              "--prefix=#{prefix}"
-      system 'make all'
-      system 'make install'
-      FileUtils.mv lib, libexec
+      system 'make', 'all'
+      system 'make', 'install'
     end
   end
 

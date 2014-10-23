@@ -9,6 +9,7 @@ class I386ElfGcc < Formula
   depends_on 'gmp'
   depends_on 'libmpc'
   depends_on 'mpfr'
+  depends_on 'gcc49'
   depends_on 'i386-elf-binutils'
 
   def install
@@ -21,15 +22,21 @@ class I386ElfGcc < Formula
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
 
     mkdir 'build' do
-      system '../configure', '--disable-nls', '--target=i386-elf', '--disable-werror',
-                             "--prefix=#{prefix}",
+      system '../configure', '--target=i386-elf',
+                             '--disable-nls', '--disable-werror',
+                             '--enable-interwork', '--enable-multilib',
+                             #'--with-gmp=/usr',
+                             #'--with-mpc=/opt/local',
+                             #'--with-mpfr=/opt/local',
                              "--enable-languages=c,c++",
-                             "--without-headers"
-      system 'make all-gcc'
-      system 'make install-gcc'
+                             "--without-headers",
+                             "--prefix=#{prefix}"
+      
+      system 'make', 'all-gcc'
+      system 'make', 'install-gcc'
       FileUtils.ln_sf binutils.prefix/"i386-elf", prefix/"i386-elf"
-      system 'make all-target-libgcc'
-      system 'make install-target-libgcc'
+      system 'make', 'all-target-libgcc'
+      system 'make', 'install-target-libgcc'
       FileUtils.rm_rf share/"man"/"man7"
     end
   end

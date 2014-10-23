@@ -15,7 +15,6 @@ class I386ElfGdb < Formula
       system 'make'
       system 'make install'
       FileUtils.rm_rf share/"locale"
-      FileUtils.mv lib, libexec
     end
   end
 end
