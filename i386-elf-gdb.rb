@@ -2,9 +2,9 @@ require 'formula'
 
 class I386ElfGdb < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftp.gnu.org/gnu/gdb/gdb-7.7.tar.bz2'
-  url 'http://ftpmirror.gnu.org/gnu/gdb/gdb-7.7.tar.bz2'
-  sha1 '5cdc83ada4fe2a37d775c36272187f08b95bebe6'
+  url 'http://ftp.gnu.org/gnu/gdb/gdb-7.8.tar.gz'
+  url 'http://ftpmirror.gnu.org/gnu/gdb/gdb-7.8.tar.gz'
+  sha1 '38d816d641093db2e13ba284e26090b4'
 
   depends_on 'i386-elf-binutils'
   depends_on 'i386-elf-gcc'
