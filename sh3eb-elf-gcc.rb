@@ -1,6 +1,6 @@
 require 'formula'
 
-class I386ElfGcc < Formula
+class Sh3ebElfGcc < Formula
   homepage 'http://gcc.gnu.org'
   url 'http://ftpmirror.gnu.org/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2'
   mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2'
@@ -10,10 +10,10 @@ class I386ElfGcc < Formula
   depends_on 'libmpc' => :build
   depends_on 'mpfr' => :build
   depends_on 'gcc49' => :build
-  depends_on 'i386-elf-binutils' => :recommended
+  depends_on 'sh3eb-elf-binutils'
 
   def install
-    binutils = Formula.factory 'i386-elf-binutils'
+    binutils = Formula.factory 'sh3eb-elf-binutils'
 
     ENV['CC'] = '/usr/local/bin/gcc-4.9'
     ENV['CXX'] = '/usr/local/bin/g++-4.9'
@@ -22,19 +22,19 @@ class I386ElfGcc < Formula
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
 
     mkdir 'build' do
-      system '../configure', '--target=i386-elf',
+      system '../configure', '--target=sh3eb-elf',
                              '--disable-nls', '--disable-werror',
                              '--enable-interwork', '--enable-multilib',
-                             #'--with-gmp=/usr',
-                             #'--with-mpc=/opt/local',
-                             #'--with-mpfr=/opt/local',
+                             '--with-gmp=/usr/local',
+                             '--with-mpc=/usr/local',
+                             '--with-mpfr=/usr/local',
                              "--enable-languages=c,c++",
                              "--without-headers",
                              "--prefix=#{prefix}"
       
       system 'make', 'all-gcc'
       system 'make', 'install-gcc'
-      FileUtils.ln_sf binutils.prefix/"i386-elf", prefix/"i386-elf"
+      FileUtils.ln_sf binutils.prefix/"sh3eb-elf", prefix/"sh3eb-elf"
       system 'make', 'all-target-libgcc'
       system 'make', 'install-target-libgcc'
       FileUtils.rm_rf share/"man"/"man7"
